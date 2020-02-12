@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="display.css"?>
+<setlist>
+	<heading>Cover Band Tracklist</heading>
+	<track>
+		<title>Fill in the Blank</title>
+		<data>
+			<artist>Car Seat Headrest</artist>
+			<genre>Indie Rock</genre>
+			<year>2016</year>
+		</data>
+	</track>
+	<track>
+		<title>Summer Babe (Winter Version)</title>
+		<data>
+			<artist>Pavement</artist>
+			<genre>Lo-Fi Indie</genre>
+			<year>1992</year>
+		</data>
+	</track>
+	<track>
+		<title>Debaser</title>
+		<data>
+			<artist>Pixies</artist>
+			<genre>Alternative Rock</genre>
+			<year>1989</year>
+		</data>
+	</track>
+	<track>
+		<title>Loose</title>
+		<data>
+			<artist>The Stooges</artist>
+			<genre>Proto-Punk</genre>
+			<year>1970</year>
+		</data>
+	</track>
+	<track>
+		<title>Hard to Explain</title>
+		<data>
+			<artist>The Strokes</artist>
+			<genre>Garage Rock Revival</genre>
+			<year>2001</year>
+		</data>
+	</track>
+	<track>
+		<title>Sugarcube</title>
+		<data>
+			<artist>Yo La Tengo</artist>
+			<genre>Noise Pop</genre>
+			<year>1997</year>
+		</data>
+	</track>
+	<track>
+		<title>Degausser</title>
+		<data>
+			<artist>Brand New</artist>
+			<genre>Emo</genre>
+			<year>2006</year>
+		</data>
+	</track>
+	<track>
+		<title>Getchoo</title>
+		<data>
+			<artist>Weezer</artist>
+			<genre>Power Pop</genre>
+			<year>1996</year>
+		</data>
+	</track>
+	<track>
+		<title>Cherub Rock</title>
+		<data>
+			<artist>The Smashing Pumpkins</artist>
+			<genre>Grunge</genre>
+			<year>1993</year>
+		</data>
+	</track>
+	<track>
+		<title>Vapour Trail</title>
+		<data>
+			<artist>Ride</artist>
+			<genre>Shoegaze</genre>
+			<year>1990</year>
+		</data>
+	</track>
+</setlist>

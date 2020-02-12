@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+track {
+	color: #33cc33;
+	width: 100%;
+}
+ heading {
+	color: #33ccff;
+	font-size: 40px;
+}
+ heading, artist, title, genre, year {
+	display: block;
+}
+ title {
+ 	font-size: 20px;
+ 	font-weight: bold;
+ }
