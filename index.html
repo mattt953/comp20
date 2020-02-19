@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Joe's Hotdog Stand</title>
+	<style type="text/css">
+		html,body {
+			font-size: 20px;
+			font-family: "Arial", Helvetica, sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<h1>Welcome to Joe's Hotdogs!</h1>
+
+	<h2>Your Order</h2>
+
+	<script language="javascript">
+
+	function round(value, decimals) {
+    	return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals);
+	}
+
+	hNum = prompt("How many hotdogs?", "1");
+	fNum = prompt("How many fries?", "1");
+	dNum = prompt("How many drinks?", "1");
+
+	hCost = hNum * 3.25;
+	fCost = fNum * 2.00;
+	dCost = dNum * 1.50;
+
+	hCostRound = round(hCost, 2);
+	fCostRound = round(fCost, 2);
+	dCostRound = round(dCost, 2);
+
+	document.write("# Hotdogs: " + hNum + " at $3.25 is $" + hCostRound + "<br/>");
+	document.write("# Fries: " + fNum + " at $2.00 is $" + fCostRound + "<br/>");
+	document.write("# Drinks: " + dNum + " at $1.50 is $" + dCostRound + "<br/>");
+
+	subtotal = hCost + fCost + dCost;
+
+	if (subtotal > 20) {
+		document.write("<i>You qualified for our 10% discount.</i><br/>");
+		subtotal = subtotal * 0.9;
+	}
+
+	subtotalRound = round(subtotal, 2);
+
+	document.write("Subtotal: $" + subtotalRound + "<br/>");
+
+	tax = subtotal * 0.0625;
+	taxRound = round(tax, 2);
+
+	document.write("Meals Tax: $" + taxRound + "<br/>");
+
+	total = tax + subtotal;
+	totalRound = round(total, 2);
+
+	document.write("Total: $" + totalRound + "<br/>");
+	</script>
+</body>
+</html>
