@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Massachusetts Lottery</title>
+	<style type="text/css">
+		html,body {
+			font-size: 20px;
+			font-family: "Arial", Helvetica, sans-serif;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Massachusetts Lottery</h1>
+
+	<div>Here are your unsorted numbers:</div>
+	<div id="unsorted"></div>
+	<div id="luck1"></div><br>
+
+	<div>Here are your sorted numbers:</div>
+	<div id="sorted"></div>
+	<div id="luck2"></div><br>
+
+	<form>
+		<label for="inputNums">Lottery Numbers:</label><br>
+		<input type="ntext" id="inputNums"><br>
+		<label for="luckyNum">Lucky Number:</label><br>
+		<input type="text" id="luckyNum"><br>
+		<input type="button" value="Submit" onclick="calculatePayout()"><br>
+	</form>
+
+	<br>
+	<div id="win"></div>
+
+	<script language="JavaScript">
+	function calculatePayout() {
+		// collecting input
+		var input1 = document.getElementById("inputNums").value;
+		var input2 = document.getElementById("luckyNum").value;
+		var winNums = input1.split(" ").map(Number);
+		var luckNum = parseInt(input2);
+
+		// sorting
+		winNums.sort(function(a,b){return a - b});
+
+		// collecting data from page
+		var fromPage1 = document.getElementById("sorted").innerHTML;
+		var yourNums = fromPage1.split(", ").map(Number);
+		var fromPage2 = document.getElementById("luck2").innerHTML;
+		var yourLuck = fromPage2.replace("Lucky Number: ","");
+		yourLuck = parseInt(yourLuck);
+
+		// calculating matches
+		var count = 0;
+		var isLucky = 0;
+		var prize = 0;
+		for (var i = 0; i < 5; i++) {
+			if (winNums[i] == yourNums[i]) {
+				count++;
+			}
+		}
+		if (luckNum == yourLuck) {
+			isLucky = 1;
+		}
+
+		// calculating prize
+		if (count == 0) {
+			if (isLucky) {
+				prize = 4;
+			}
+		}
+		if (count == 1) {
+			if (isLucky) {
+				prize = 6;
+			}
+		}
+		if (count == 2) {
+			prize = 3;
+			if (isLucky) {
+				prize = 25;
+			}
+		}
+		if (count == 3) {
+			prize = 20;
+			if (isLucky) {
+				prize = 150;
+			}
+		}
+		if (count == 4) {
+			prize = 200;
+			if (isLucky) {
+				prize = 5000;
+			}
+		}
+		if (count == 5) {
+			prize = 25000;
+			if (isLucky) {
+				prize = 7000
+			}
+		}
+
+		if (count == 5) {
+			if (isLucky) {
+				document.getElementById("win").innerHTML = "You have won: $" + prize + " a WEEK for LIFE!";
+			} else {
+				document.getElementById("win").innerHTML = "You have won: $" + prize + " a YEAR for LIFE!";
+			}
+		} else {
+			document.getElementById("win").innerHTML = "You have won: $" + prize;
+		}
+	}
+
+	// generating random nums
+	var nums = [0, 0, 0, 0, 0];
+	var lucky = 0;
+	for (i = 0; i < 5; i++) {
+		nums[i] = Math.floor(Math.random() * 48);
+	}
+	lucky = Math.floor(Math.random() * 18);
+	
+	// writing unsorted output
+	var unsortedOutput = "";
+	for (var i = 0; i < 4; i++) {
+		unsortedOutput = unsortedOutput + nums[i] + ", ";
+	}
+	unsortedOutput = unsortedOutput + nums[4];
+	document.getElementById("unsorted").innerHTML = unsortedOutput;
+	document.getElementById("luck1").innerHTML = "Lucky Number: " + lucky;
+
+	// sorting it
+	nums.sort(function(a,b){return a - b});
+
+	// writing sorted output
+	var sortedOutput = "";
+	for (var i = 0; i < 4; i++) {
+		sortedOutput = sortedOutput + nums[i] + ", ";
+	}
+	sortedOutput = sortedOutput + nums[4];
+	document.getElementById("sorted").innerHTML = sortedOutput;
+	document.getElementById("luck2").innerHTML = "Lucky Number: " + lucky;
+
+	</script>
+
+</body>
+</html>

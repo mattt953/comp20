@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Amicable Numbers</title>
+	<style type="text/css">
+		html,body {
+			font-size: 20px;
+			font-family: "Arial", Helvetica, sans-serif;
+		}
+	</style>
+</head>
+<body>
+
+	<script language="JavaScript">
+
+	function amicable() {
+
+		// testing isFactor
+		// var bool1 = isFactor(10, 5);
+		// var bool2 = isFactor(10, 7);
+		// console.log(bool1);
+		// console.log(bool2);
+
+		// testing showFactors
+		// var nums = [1, 2, 3, 4];
+		// var numsDisplay = showFactors(nums);
+		// console.log(numsDisplay);
+
+		// testing addFactors
+		// var nums = [1, 2, 3, 4];
+		// var sum = addFactors(nums);
+		// console.log(sum);
+
+		// testing getFactors
+		// var num = 48;
+		// var factors = getFactors(num);
+		// console.log(factors);
+
+		var one = document.getElementById("num1").value;
+		var two = document.getElementById("num2").value;
+
+		var oneFactors = getFactors(one);
+		var twoFactors = getFactors(two);
+
+		var oneFactorsSum = addFactors(oneFactors);
+		var twoFactorsSum = addFactors(twoFactors);
+
+		document.getElementById("firstFactors").innerHTML = showFactors(oneFactors) + " | Sum: " + oneFactorsSum;
+		document.getElementById("secondFactors").innerHTML = showFactors(twoFactors) + " | Sum: " + twoFactorsSum;
+
+		var amicable;
+		if (oneFactorsSum == two && twoFactorsSum == one) {
+			amicable = true;
+		} else {
+			amicable = false;
+		}
+
+		if (amicable) {
+			document.getElementById("am").innerHTML = "They are amicable"
+		} else {
+			document.getElementById("am").innerHTML = "They are not amicable"
+		}
+	}
+
+	function readNums() {
+		var one = document.getElementById("num1").value;
+		var two = document.getElementById("num2").value;
+		document.getElementById("first").innerHTML = one;
+		document.getElementById("second").innerHTML = two;
+	}
+
+	function isFactor(num, test) {
+		var b = num % test;
+		if (b != 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function showFactors(numArray) {
+		var display = "";
+		for (var i = 0; i < numArray.length - 1; i++) {
+			display = display + numArray[i] + ", ";
+		}
+		display = display + numArray[numArray.length - 1];
+		return display;
+	}
+
+	function addFactors(numArray) {
+		var sum = 0;
+		for (var i = 0; i < numArray.length; i++) {
+			sum = sum + numArray[i];
+		}
+		return sum;
+	}
+
+	function getFactors(num) {
+		var numArray = [];
+		for (var i = 1; i < num; i++) {
+			if (isFactor(num, i)) {
+				numArray.push(i);
+			}
+		}
+		return numArray;
+	}
+	
+	</script>
+
+	<h1>Amicable Numbers</h1>
+
+	<form>
+		<label for="num1">First Number:</label><br>
+		<input type="number" id="num1"><br>
+		<label for="num2">Second Number:</label><br>
+		<input type="number" id="num2"><br>
+		<input type="button" value="Submit" onclick="amicable()"><br>
+	</form>
+
+	<div id="first"></div>
+	<div id="second"></div><br>
+
+	<div id="firstFactors"></div>
+	<div id="secondFactors"></div><br>
+
+	<div id="am"></div>
+
+</body>
+</html>
